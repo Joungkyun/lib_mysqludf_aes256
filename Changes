@@ -1,0 +1,10 @@
+Changelog
+
+$Id$
+
+
+Fri, Sep 13 2013 JoungKyun.Kim <http://oops.org>
+	- base on mysql 5.5.33 my_aes.c
+	- compatible aes_encrypt/aes_decrypt native function
+	- 1.0.0 release
+

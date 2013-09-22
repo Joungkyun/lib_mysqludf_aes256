@@ -1,0 +1,16 @@
+LIB_MYSQLUDF_AES256 LICENSE
+---------------------------
+
+Copyright (c) 2013 JoungKyun.Kim <http://oops.org>
+All rights reserved.
+
+Ths lib_mysqludf_aes256 support AES256 encrypt and decrypt. And
+this functions are compatible aes_encrypt/aes_decrypt of mysql
+if given 128 bit key.
+
+Release of lib_mysqludf_aes256 is distributed with GPL2 license.
+See also Copying document.
+
+Written by:       JoungKyun.Kim
+Email local part: joungkyun
+Email doman:      gmail.com

@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# $Id$
+# require autoconf > 2.63 & automake > 1.11
+#
+
+opt=
+
+[ "$1" = "--install" ] && opt="$1"
+
+export LIBTOOL=/usr/bin/libtool
+export AUTOMAKE=/usr/bin/automake
+export ACLOCAL=/usr/bin/aclocal
+
+rm -f configure
+autoreconf $opt
+
+if [ -n "$opt" ]; then
+	rm -rf po ABOUT-NLS
+fi
+
+rm -rf autom4te.cache *~
+
+exit 0

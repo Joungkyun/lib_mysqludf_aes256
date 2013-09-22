@@ -1,0 +1,23 @@
+$Id$
+
+lib_mysqludf_aes256 - Support AES256 encrypt/decrypt
+
+Copyright (c) 2013 JoungKyun.Kim <http://oops.org>
+All rights reserved.
+LICENSE: GPL2
+
+
+Quick Install
+
+    ./configure --prefix=/usr --with-mysql-plugins-dir=@MYSQL_PLUGIN_DIR@
+    make
+    make install
+
+    For test installation, use test-install make option, installed $(pwd)/z.
+
+    make test-install
+
+    After installation you registed lib_mysqludf_aes256 functions.
+    On soruce top directory, execute follow command.
+
+    shell> mysql < docs/lib_mysqludf_aes256.sql
