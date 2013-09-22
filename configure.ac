@@ -4,7 +4,7 @@
 # $Id$
 
 AC_PREREQ(2.59)
-AC_INIT([lib_mysqludf_aes256], [1.0.0], [hsjang@gmail.com])
+AC_INIT([lib_mysqludf_aes256], [1.0.0], [http://oops.org])
 
 AC_CONFIG_AUX_DIR([build])
 AM_INIT_AUTOMAKE([-Wall -Werror -Wno-override foreign no-dependencies])
