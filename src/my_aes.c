@@ -20,6 +20,7 @@
 */
 
 #define AES256_API
+#define HAVE_LOG2 // for mariadb
 
 #include <my_global.h>
 #include <m_string.h>
