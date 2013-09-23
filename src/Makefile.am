@@ -27,6 +27,7 @@ AM_LDFLAGS = -module -avoid-version
 AM_CPPFLAGS = -I$(top_srcdir)
 
 BUILT_SOURCES = mysql_aes256_config.h
+include_HEADERS = my_aes.h rijndael.h
 noinst_HEADERS = mysql_aes256.h
 
 lib_LTLIBRARIES += lib_mysqludf_aes256.la
