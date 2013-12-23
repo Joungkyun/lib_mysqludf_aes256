@@ -59,7 +59,7 @@ host_triplet = @host@
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(dist_doc_DATA) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(top_srcdir)/configure COPYING build/config.guess \
+	$(top_srcdir)/configure COPYING acconfig.h build/config.guess \
 	build/config.sub build/install-sh build/ltmain.sh \
 	build/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4

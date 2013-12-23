@@ -289,7 +289,7 @@ mysql_aes256_config.h: stamp-h1
 stamp-h1: $(srcdir)/mysql_aes256_config.h.in $(top_builddir)/config.status
 	@rm -f stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status src/mysql_aes256_config.h
-$(srcdir)/mysql_aes256_config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps) 
+$(srcdir)/mysql_aes256_config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps) $(top_srcdir)/acconfig.h
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f stamp-h1
 	touch $@
