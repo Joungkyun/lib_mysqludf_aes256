@@ -26,7 +26,7 @@ ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = src
 
 docdir= $(datadir)/doc/$(PACKAGE)-$(VERSION)
-dist_doc_DATA = COPYING Changes README LICENSE docs/lib_mysqludf_aes256.sql
+dist_doc_DATA = COPYING Changes README LICENSE docs/aes256_install.sql docs/aes256_uninstall.sql
 
 test-install:
 	$(MAKE) DESTDIR=`pwd`/z install
