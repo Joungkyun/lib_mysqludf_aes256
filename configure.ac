@@ -71,14 +71,6 @@ AC_CHECK_HEADERS(
 )
 CPPFLAGS="$OLD_CPPFLAGS"
 
-# Checks for libraries
-AC_CHECK_LIB(
-	[pthread], [pthread_attr_getguardsize],
-	[AC_DEFINE_UNQUOTED([HAVE_PTHREAD_ATTR_GETGUARDSIZE], [1],
-		[Define if pthread has pthread_attr_getguardsize api])
-	],
-)
-
 if test "x$enable_debug" = "xyes"
 then
 	CFLAGS=`echo $CFLAGS | sed 's/-[gO][0-9]*//g'`

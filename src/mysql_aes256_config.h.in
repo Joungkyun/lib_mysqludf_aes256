@@ -31,9 +31,6 @@
 /* Define to 1 if you have the <my_sys.h> header file. */
 #undef HAVE_MY_SYS_H
 
-/* Define if pthread has pthread_attr_getguardsize api */
-#undef HAVE_PTHREAD_ATTR_GETGUARDSIZE
-
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
 
