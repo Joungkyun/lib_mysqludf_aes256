@@ -1,13 +1,4 @@
 /* src/mysql_aes256_config.h.in.  Generated from configure.ac by autoheader.  */
-/* $Id$ */
-#ifndef LIB_MYSQLUDF_AES256_CONFIG_H
-#define LIB_MYSQLUDF_AES256_CONFIG_H
-
-/* config.h:  a general config file */
-
-#include "mysql_aes256_conflict.h"
-
-
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #undef HAVE_DLFCN_H
@@ -92,5 +83,3 @@
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
 #undef size_t
-
-#endif /*  LIB_MYSQLUDF_AES256_CONFIG_H */
