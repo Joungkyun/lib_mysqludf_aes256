@@ -121,26 +121,6 @@ EXPORT_API my_bool aes256_encrypt_init (UDF_INIT * initid, UDF_ARGS * args, char
 	}
 
 	for ( i=0; i<2; i++ ) {
-		if ( ! args->args[i] || ! args->lengths[i] ) {
-			sprintf (
-				message,
-				"%dst argument is missing (udf: %s)\n",
-				i + 1, __FUNCTION__
-			);
-
-			fprintf (
-				stderr,
-				"  - %dst Argument:\n"
-				"    - type   : %d\n"
-				"    - data   : %s\n"
-				"    - length : %d\n",
-				i + 1, args->arg_type[i], args->args[i], args->lengths[i]
-			);
-
-			DEBUG_FUNCTION_OUT;
-			return false;
-		}
-
 		if ( args->arg_type[i] != STRING_RESULT ) {
 			sprintf (
 				message,
