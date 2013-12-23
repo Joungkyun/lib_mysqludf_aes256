@@ -81,7 +81,7 @@ static int my_aes256_create_key(KEYINSTANCE *aes_key,
 
   DEBUG_SUB_FUNCTION_IN;
 
-  bzero((char*) rkey,keybit/8);      /* Set initial key  */
+  memset ((char*) rkey, 0, keybit/8);      /* Set initial key  */
 
   for (ptr= rkey, sptr= key; sptr < key_end; ptr++,sptr++)
   {
@@ -170,7 +170,7 @@ int my_aes256_encrypt(const char* source, int source_length, char* dest,
   /* Encode the rest. We always have incomplete block */
   pad_len = AES256_BLOCK_SIZE - (source_length - AES256_BLOCK_SIZE*num_blocks);
   memcpy(block, source, 16 - pad_len);
-  bfill(block + AES256_BLOCK_SIZE - pad_len, pad_len, pad_len);
+  memset(block + AES256_BLOCK_SIZE - pad_len, pad_len, pad_len);
   rijndaelEncrypt(aes_key.rk, aes_key.nr, block, (uint8*) dest);
   DEBUG_SUB_FUNCTION_OUT;
   return AES256_BLOCK_SIZE*(num_blocks + 1);
