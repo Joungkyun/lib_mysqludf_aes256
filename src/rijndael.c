@@ -24,10 +24,11 @@
   author Paulo Barreto <paulo.barreto@terra.com.br>
 */
 
-#if MYSQL_VERSION_MINOR > 5
 
 #include <my_global.h>
 #include "rijndael.h"
+
+#if MYSQL_VERSION_MINOR > 5
 
 /*
   Define the following to use fastest and much larger code (~10K extra code)
