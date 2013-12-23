@@ -95,7 +95,8 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 lib_mysqludf_aes256_la_DEPENDENCIES =
 am_lib_mysqludf_aes256_la_OBJECTS =  \
 	lib_mysqludf_aes256_la-mysql_aes256.lo \
-	lib_mysqludf_aes256_la-my_aes.lo
+	lib_mysqludf_aes256_la-my_aes.lo \
+	lib_mysqludf_aes256_la-rijndael.lo
 lib_mysqludf_aes256_la_OBJECTS = $(am_lib_mysqludf_aes256_la_OBJECTS)
 lib_mysqludf_aes256_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -236,7 +237,7 @@ AM_LDFLAGS = -module -avoid-version
 AM_CPPFLAGS = -I$(top_srcdir)
 BUILT_SOURCES = mysql_aes256_config.h
 noinst_HEADERS = mysql_aes256.h my_aes.h rijndael.h mysql_aes256_conflict.h
-lib_mysqludf_aes256_la_SOURCES = mysql_aes256.c my_aes.c
+lib_mysqludf_aes256_la_SOURCES = mysql_aes256.c my_aes.c rijndael.c
 lib_mysqludf_aes256_la_LIBADD = -lpthread
 lib_mysqludf_aes256_la_CFLAGS = -DMYSQL_SERVER
 #lib_mysqludf_aes256_la_CFLAGS   = -DSTANDARD -DMYSQL_SERVER
@@ -348,6 +349,9 @@ lib_mysqludf_aes256_la-mysql_aes256.lo: mysql_aes256.c
 
 lib_mysqludf_aes256_la-my_aes.lo: my_aes.c
 	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib_mysqludf_aes256_la_CPPFLAGS) $(CPPFLAGS) $(lib_mysqludf_aes256_la_CFLAGS) $(CFLAGS) -c -o lib_mysqludf_aes256_la-my_aes.lo `test -f 'my_aes.c' || echo '$(srcdir)/'`my_aes.c
+
+lib_mysqludf_aes256_la-rijndael.lo: rijndael.c
+	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib_mysqludf_aes256_la_CPPFLAGS) $(CPPFLAGS) $(lib_mysqludf_aes256_la_CFLAGS) $(CFLAGS) -c -o lib_mysqludf_aes256_la-rijndael.lo `test -f 'rijndael.c' || echo '$(srcdir)/'`rijndael.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

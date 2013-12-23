@@ -33,11 +33,9 @@
 		typedef unsigned long long ulonglong;
 		typedef long long longlong;
 	#endif /*__WIN__*/
-	#include <mysql_aes256_config.h>
 #else
 	#define HAVE_LOG2 // for mariadb
 	#include <my_global.h>
-	#include <mysql_aes256_config.h>
 	#include <my_sys.h>
 	#if defined(MYSQL_SERVER)
 		#include <m_string.h>		/* To get strmov() */
@@ -57,6 +55,7 @@ static pthread_mutex_t LOCK_hostname;
 extern "C" {
 #endif
 
+#include <mysql_aes256_config.h>
 #include <mysql_aes256.h>
 
 #ifdef HAVE_DLOPEN

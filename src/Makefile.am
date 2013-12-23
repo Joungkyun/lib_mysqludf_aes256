@@ -30,7 +30,7 @@ BUILT_SOURCES = mysql_aes256_config.h
 noinst_HEADERS = mysql_aes256.h my_aes.h rijndael.h mysql_aes256_conflict.h
 
 lib_LTLIBRARIES += lib_mysqludf_aes256.la
-lib_mysqludf_aes256_la_SOURCES  = mysql_aes256.c my_aes.c
+lib_mysqludf_aes256_la_SOURCES  = mysql_aes256.c my_aes.c rijndael.c
 lib_mysqludf_aes256_la_LIBADD   = -lpthread
 lib_mysqludf_aes256_la_CFLAGS   = -DMYSQL_SERVER
 #lib_mysqludf_aes256_la_CFLAGS   = -DSTANDARD -DMYSQL_SERVER

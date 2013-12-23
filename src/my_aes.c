@@ -29,7 +29,6 @@
 
 enum encrypt_dir { AES_ENCRYPT, AES_DECRYPT };
 
-#define AES256_KEY_LENGTH 256
 #define AES256_BLOCK_SIZE 16	/* Block size in bytes */
 
 #define AES256_BAD_DATA  -1	/* If bad data discovered during decoding */
