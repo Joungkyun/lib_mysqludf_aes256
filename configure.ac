@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for mysql aes256 encrypt/decrypt UDF
 #
-# $Id$
+# $Id: configure.ac 12 2013-12-23 10:26:31Z oops $
 
 AC_PREREQ(2.59)
 AC_INIT([lib_mysqludf_aes256], [1.0.1], [http://oops.org])

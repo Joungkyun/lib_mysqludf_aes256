@@ -35,7 +35,7 @@
 # -----------------------------------------------------------------------------
 # This file is part of lib_mysqludf_aes256.
 #
-# $Id$
+# $Id: Makefile.in 8 2013-12-23 08:38:43Z oops $
 
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@

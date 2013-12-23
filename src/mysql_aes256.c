@@ -18,7 +18,7 @@
  * -----------------------------------------------------------------------------
  * This file is part of lib_mysqludf_aes267
  *
- * $Id$
+ * $Id: mysql_aes256.c 13 2013-12-23 10:37:57Z oops $
  */
 
 #ifdef STANDARD
