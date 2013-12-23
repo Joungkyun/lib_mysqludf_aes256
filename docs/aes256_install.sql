@@ -18,7 +18,7 @@
  * -----------------------------------------------------------------------------
  * This file is part of lib_mysqludf_aes267
  *
- * $Id$
+ * $Id: aes256_install.sql 21 2013-12-23 16:46:44Z oops $
  */
 
 use mysql;

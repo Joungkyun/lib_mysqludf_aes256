@@ -18,7 +18,7 @@
 # -----------------------------------------------------------------------------
 # This file is part of lib_mysqludf_aes256.
 #
-# $Id$
+# $Id: Makefile.am 21 2013-12-23 16:46:44Z oops $
 
 DISTCLEANFILES = *.bz2 *~
 

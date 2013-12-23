@@ -1,4 +1,4 @@
-$Id$
+$Id: README 2 2013-09-22 06:56:19Z oops $
 
 lib_mysqludf_aes256 - Support AES256 encrypt/decrypt
 
