@@ -24,11 +24,26 @@
   author Paulo Barreto <paulo.barreto@terra.com.br>
 */
 
+#include <mysql_version.h>
+
+#ifdef MARIADB_BASE_VERSION
+#	ifndef HAVE_LOG2
+#		define HAVE_LOG2
+#	endif
+#	if MYSQL_VERSION_ID > 100000
+#		define SELF_RIJNDAEL
+#	endif
+#else
+#	if MYSQL_VERSION_ID > 50600
+#		define SELF_RIJNDAEL
+#	endif
+#endif
+
 
 #include <my_global.h>
 #include "rijndael.h"
 
-#if MYSQL_VERSION_MINOR > 5
+#ifdef SELF_RIJNDAEL
 
 /*
   Define the following to use fastest and much larger code (~10K extra code)
