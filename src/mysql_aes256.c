@@ -21,6 +21,8 @@
  * $Id$
  */
 
+#include <mysql_version.h>
+
 #ifdef STANDARD
 	/* STANDARD is defined, don't use any mysql functions */
 	#include <stdlib.h>
@@ -34,7 +36,9 @@
 		typedef long long longlong;
 	#endif /*__WIN__*/
 #else
-	#define HAVE_LOG2 // for mariadb
+	#if MYSQL_VERSION_ID < 100100
+		#define HAVE_LOG2 // for mariadb < 10.1
+	#endif
 	#include <my_global.h>
 	#include <my_sys.h>
 	#if defined(MYSQL_SERVER)

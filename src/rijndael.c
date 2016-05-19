@@ -27,8 +27,10 @@
 #include <mysql_version.h>
 
 #ifdef MARIADB_BASE_VERSION
-#	ifndef HAVE_LOG2
-#		define HAVE_LOG2
+#	if MYSQL_VERSION_ID < 100100
+#		ifndef HAVE_LOG2
+#			define HAVE_LOG2
+#		endif
 #	endif
 #	if MYSQL_VERSION_ID > 100000
 #		define SELF_RIJNDAEL
@@ -38,7 +40,6 @@
 #		define SELF_RIJNDAEL
 #	endif
 #endif
-
 
 #include <my_global.h>
 #include "rijndael.h"

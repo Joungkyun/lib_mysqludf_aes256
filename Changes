@@ -2,6 +2,9 @@ Changelog
 
 $Id$
 
+Thu, May 19 2016 JoungKyun.Kim <http://oops.org>
+	- fixed HAVE_LOG2 redefining warning on mariadb 10.1
+
 Wed, Jun  4 2014 JoungKyun.Kim <http://oops.org>
 	- release 1.0.3
 	- support mariadb 10.0
