@@ -1,0 +1,14 @@
+*.swp
+*~
+*.*o
+*.lo
+*.*a
+.libs
+Makefile
+config.h
+config.log
+config.status
+libtool
+stamp-h1
+tags
+src/mysql_aes256_config.h
