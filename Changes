@@ -2,6 +2,10 @@ Changelog
 
 $Id$
 
+Fri, May 20 2016 JoungKyun.Kim <http://oops.org>
+	- remove --with-mysql-plugins-dir option
+	- add --with-mysql-config option
+
 Thu, May 19 2016 JoungKyun.Kim <http://oops.org>
 	- fixed HAVE_LOG2 redefining warning on mariadb 10.1
 

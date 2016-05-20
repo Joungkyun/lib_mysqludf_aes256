@@ -23,33 +23,48 @@ AM_PROG_AR
 AC_PROG_LIBTOOL
 AX_GL_VISIBILITY
 
-
-AC_ARG_ENABLE(debug,
-	[  --enable-debug                   enable debug falgs])
-
-AC_ARG_WITH(mysql-plugins-dir,
-	[  --with-mysql-plugins-dir=PATH    mysql plugins directory. [[default=/usr/local/lib]]
-	                  This option is replace of --libdir option
-	])
-
 AC_SUBST([MYSQL_HEADER])
-AC_ARG_WITH(mysql,
-	[  --with-mysql=PATH       mysql prefix.])
 
-if test "x$with_mysql_plugins_dir" = "xyes" -o "x$with_mysql_plugins_dir" = "xno"
-then
-	AC_MSG_ERROR([--with-mysql-plugins-dir requires path of plugin directory])
-else
-	if test -n "$with_mysql_plugins_dir"
-	then
-		libdir="$with_mysql_plugins_dir"
+AC_ARG_ENABLE(debug, AS_HELP_STRING([--enable-debug], [enable debug flags]))
+AC_ARG_WITH(mysql, AS_HELP_STRING([--with-mysql=PATH], [mysql prefix]), [], [MYSQL_PREFIX=/usr/local])
+AC_ARG_WITH(mysql-config, AS_HELP_STRING([--with-mysql-config=PATH], [path of mysql_config]))
+
+AS_IF([test "x$with_mysql" != "xno"], [MYSQL_PREFIX="$with_mysql"])
+
+MYSQL_PLUGIN_DIR=
+MYSQL_CONFIG=
+
+for i in $MYSQL_PREFIX/bin $MYSQL_PREFIX/sbin /usr/bin /usr/sbin /bin /sbin /usr/local/bin /usr/local/sbin
+do
+	if test -f "$i/mysql_config"; then
+		MYSQL_CONFIG="$i/mysql_config"
+		break
+	fi
+done
+
+if test "x$with_mysql_config" != "xno"; then
+	if test -x "$with_mysql_config"; then
+		MYSQL_CONFIG="$with_mysql_config"
 	fi
 fi
 
-if test "x$with_mysql" != "xno"
-then
-	MYSQL_PREFIX="$with_mysql"
+AC_MSG_CHECKING(checking for mysql_config) 
+if test -n "$MYSQL_CONFIG"; then
+	AC_MSG_RESULT($MYSQL_CONFIG)
+else
+	AC_MSG_ERROR(can not find)
 fi
+
+MYSQL_PLUGIN_DIR=$($MYSQL_CONFIG --plugindir 2> /dev/null)
+
+AC_MSG_CHECKING(checking for mysql plugin dir) 
+if test -n "$MYSQL_CONFIG"; then
+	AC_MSG_RESULT($MYSQL_PLUGIN_DIR)
+	libdir="$MYSQL_PLUGIN_DIR"
+else
+	AC_MSG_ERROR(can not find)
+fi
+
 
 for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
 do
