@@ -21,9 +21,6 @@
 
 #define AES256_API
 #include <mysql_version.h>
-#if MYSQL_VERSION_ID < 100100
-	#define HAVE_LOG2 // for mariadb
-#endif
 
 #include <my_global.h>
 #include <m_string.h>
