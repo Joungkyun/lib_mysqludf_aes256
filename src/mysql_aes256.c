@@ -53,8 +53,6 @@
 #include <mysql.h>
 #include <ctype.h>
 
-static pthread_mutex_t LOCK_hostname;
-
 #ifdef __cplusplus
 extern "C" {
 #endif
