@@ -1,6 +1,6 @@
 lib_mysqludf_aes256
 ===
-[![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/Joungkyun/lib_mysqludf_aes256/master/COPYING)
+[![Build Status](https://travis-ci.org/Joungkyun/lib_mysqludf_aes256.svg?branch=master)](https://travis-ci.org/Joungkyun/lib_mysqludf_aes256) [![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/Joungkyun/lib_mysqludf_aes256/master/COPYING)
 
 Support AES 128/192/256 encrypt and decrypt on MySQL and Maraidb with User Defined Function.
 
