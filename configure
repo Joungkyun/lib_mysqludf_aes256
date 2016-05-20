@@ -1410,7 +1410,7 @@ Optional Packages:
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
   --with-sysroot=DIR Search for dependent libraries within DIR
                         (or the compiler's sysroot if not specified).
-  --with-mysql=PATH       mysql prefix
+  --with-mysql=PATH       mysql prefix [default=/usr/local]
   --with-mysql-config=PATH
                           path of mysql_config
 

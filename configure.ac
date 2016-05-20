@@ -26,7 +26,7 @@ AX_GL_VISIBILITY
 AC_SUBST([MYSQL_HEADER])
 
 AC_ARG_ENABLE(debug, AS_HELP_STRING([--enable-debug], [enable debug flags]))
-AC_ARG_WITH(mysql, AS_HELP_STRING([--with-mysql=PATH], [mysql prefix]), [], [MYSQL_PREFIX=/usr/local])
+AC_ARG_WITH(mysql, AS_HELP_STRING([--with-mysql=PATH], [mysql prefix [default=/usr/local]]), [], [MYSQL_PREFIX=/usr/local])
 AC_ARG_WITH(mysql-config, AS_HELP_STRING([--with-mysql-config=PATH], [path of mysql_config]))
 
 AS_IF([test "x$with_mysql" != "xno"], [MYSQL_PREFIX="$with_mysql"])
