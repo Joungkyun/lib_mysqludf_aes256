@@ -254,7 +254,7 @@ int my_aes256_decrypt(const char *source, int source_length, char *dest,
    Size of buffer required to store encrypted data
 */
 
-int my_aes256_get_size(int source_length)
+unsigned long my_aes256_get_size(int source_length)
 {
   DEBUG_SUB_FUNCTION_IN;
   DEBUG_SUB_FUNCTION_OUT;

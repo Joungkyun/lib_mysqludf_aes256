@@ -5,6 +5,7 @@ $Id$
 Fri, May 20 2016 JoungKyun.Kim <http://oops.org>
 	- remove --with-mysql-plugins-dir option
 	- add --with-mysql-config option
+	- fixed compile warning on gcc 4.8 (#3)
 
 Thu, May 19 2016 JoungKyun.Kim <http://oops.org>
 	- fixed HAVE_LOG2 redefining warning on mariadb 10.1

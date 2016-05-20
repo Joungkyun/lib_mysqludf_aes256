@@ -61,6 +61,7 @@ extern "C" {
 
 #include <mysql_aes256_config.h>
 #include <mysql_aes256.h>
+#include <my_aes.h>
 
 #ifdef HAVE_DLOPEN
 
@@ -201,7 +202,7 @@ EXPORT_API char * aes256_encrypt (
 EXPORT_API my_bool aes256_decrypt_init (UDF_INIT * initid, UDF_ARGS * args, char * message)
 {
 	DEBUG_FUNCTION_IN;
-	int blocks, i;
+	int i;
 
 	if ( args->arg_count != 2 ) {
 		sprintf (
@@ -226,7 +227,7 @@ EXPORT_API my_bool aes256_decrypt_init (UDF_INIT * initid, UDF_ARGS * args, char
 				"  - %dst Argument:\n"
 				"    - type   : %d\n"
 				"    - data   : %s\n"
-				"    - length : %d\n",
+				"    - length : %ld\n",
 				i + 1, args->arg_type[i], args->args[i], args->lengths[i]
 			);
 
@@ -252,7 +253,7 @@ EXPORT_API my_bool aes256_decrypt_init (UDF_INIT * initid, UDF_ARGS * args, char
 	if ( (args->lengths[0] / AES256_BLOCK_SIZE) == 0 ) {
 		sprintf (
 			message,
-			"CIPHERTEXT(%d) is longer than AES BLOCKSIZE(%d) (udf: %s)",
+			"CIPHERTEXT(%ld) is longer than AES BLOCKSIZE(%d) (udf: %s)",
 			args->lengths[0], AES256_BLOCK_SIZE, __FUNCTION__
 		);
 		return false;
@@ -294,7 +295,7 @@ EXPORT_API char * aes256_decrypt (
 			"  - 1st Argument:\n"
 			"    + type   : %d\n"
 			"    + data   : %s\n"
-			"    + length : %d\n",
+			"    + length : %ld\n",
 			args->arg_type[0], args->args[0], args->lengths[0]
 		);
 	}
