@@ -1,0 +1,48 @@
+language: c
+
+compiler:
+    - gcc
+    - clang
+
+service: mysql
+
+addons:
+    apt:
+        packages:
+            - automake
+            - autoconf
+            - libtool
+            - autotools-dev
+
+matrix:
+    exclude:
+        - compiler: "gcc"
+        - compiler: "clang"
+    include:
+        - compiler: "gcc"
+          env: SERV="mysql", VERSION="5.6", CFLAGS="-g -O2 -Wall"
+          dist: trusty
+        - compiler: "clang"
+          env: SERV="mysql", VERSION="5.7", CFLAGS="-g -O2 -Wall"
+          dist: trusty
+        - compiler: "gcc"
+          env: SERV="mariadb", VERSION="5.5", CFLAGS="-g -O2 -Wall"
+          dist: trusty
+        - compiler: "clang"
+          env: SERV="mariadb", VERSION="10.0", CFLAGS="-g -O2 -Wall"
+          dist: trusty
+        - compiler: "gcc"
+          env: SERV="mariadb", VERSION="10.1", CFLAGS="-g -O2 -Wall"
+          dist: trusty
+        - compiler: "gcc"
+          env: SERV="mariadb", VERSION="10.2", CFLAGS="-g -O2 -Wall"
+          dist: trusty
+
+before_install:
+    - sudo /bin/bash travis/trusty-${SERV}.sh ${VERSION}
+
+script:
+    ./configure --with-mysql-plugins-dir=/usr/lib/mysql/plugin && make && sudo make install && sudo /bin/bash travis/test.sh
+
+notifications:
+      email: false
