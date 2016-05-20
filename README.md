@@ -12,7 +12,7 @@ This program is under [GPL v2](License)
 ## Requirements
 
 MySQL &lt;= 5.7  
-Mariadb &lt;= 10.1
+Mariadb &lt;= 10.2
 
 ## Usage
 
