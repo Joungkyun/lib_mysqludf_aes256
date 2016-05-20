@@ -38,14 +38,19 @@ mysql> select AES256_DECRYPT(UNHEX('encrypted_hash_string'), '0123456789abcdef01
 
 * Build and installation
 ```bash
-[root@host lib_mysqludf_aes256]$ # Check mysql(mariadb) plugins dir
-[root@host lib_mysqludf_aes256]$ mysql_config --plugindir
-/usr/lib64/mysql/plugin
 [root@host lib_mysqludf_aes256]$ ./configure \
         --with-mysql=@MYSQL_PREFIX@ \
-        --with-mysql-plugins-dir=/usr/lib64/mysql/plugin
+        --with-mysql-config=/usr/bin/mysql_config
 [root@host lib_mysqludf_aes256]$ make
 [root@host lib_mysqludf_aes256]$ make install
+```
+
+Before 1.0.4, you must use --with-mysql-plugins-dir instead of --with-mysql-config options.
+
+```bash
+[root@host lib_mysqludf_aes256]$ ./configure \
+        --with-mysql=@MYSQL_PREFIX@ \
+        --with-mysql-plugins-dir="$(mysql_config --plugindir)"
 ```
 
 If you want to check installed files, you can test install as follow.
