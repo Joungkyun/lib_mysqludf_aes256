@@ -1,6 +1,9 @@
 Changelog
 
-$Id$
+$Id: $
+
+Sun, May 22 2016 JoungKyun.Kim <http://oops.org>
+	- fixed #4 can not found my_global.h on configure
 
 Fri, May 20 2016 JoungKyun.Kim <http://oops.org>
 	- remove --with-mysql-plugins-dir option

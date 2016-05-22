@@ -69,7 +69,7 @@ fi
 for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
 do
 	if test -f "$i/include/mysql/mysql.h"; then
-		MYSQL_HEADER="-I$i/include/mysql"
+		MYSQL_HEADER="-I$i/include/mysql -I$i/include"
 		break
 	elif test -f "$i/include/mysql.h"; then
 		MYSQL_HEADER="-I$i/include"
@@ -79,7 +79,7 @@ done
 
 # Checks for header files.
 OLD_CPPFLAGS="$CPPFLAGS"
-CPPFLAGS="$CPPFLAGS $MYSQL_HEADER"
+CPPFLAGS="$MYSQL_HEADER $CPPFLAGS"
 AC_HEADER_STDC
 AC_CHECK_HEADERS(
 	[stdlib.h string.h mysql.h my_global.h my_sys.h],,

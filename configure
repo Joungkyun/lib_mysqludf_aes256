@@ -11542,7 +11542,7 @@ fi
 for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
 do
 	if test -f "$i/include/mysql/mysql.h"; then
-		MYSQL_HEADER="-I$i/include/mysql"
+		MYSQL_HEADER="-I$i/include/mysql -I$i/include"
 		break
 	elif test -f "$i/include/mysql.h"; then
 		MYSQL_HEADER="-I$i/include"
@@ -11552,7 +11552,7 @@ done
 
 # Checks for header files.
 OLD_CPPFLAGS="$CPPFLAGS"
-CPPFLAGS="$CPPFLAGS $MYSQL_HEADER"
+CPPFLAGS="$MYSQL_HEADER $CPPFLAGS"
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for ANSI C header files" >&5
 $as_echo_n "checking for ANSI C header files... " >&6; }
 if ${ac_cv_header_stdc+:} false; then :
