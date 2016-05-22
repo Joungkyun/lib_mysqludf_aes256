@@ -17,18 +17,22 @@ Mariadb &lt;= 10.2
 ## Usage
 
  * AES 128 encrypt and decrypt
+   * key length : 16byte
+   * If the length of the key is 16byte, AES256_ENCRYPT will operate in the same way as AES_ENCRYPT.
 ```mysql
 mysql> select HEX(AES256_ENCRYPT('strings', '0123456789abcdef'));
 mysql> select AES256_DECRYPT(UNHEX('encrypted_hash_string'), '0123456789abcdef');
 ```
 
  * AES 192 encrypt and decrypt
+   * key length : 24byte
 ```mysql
 mysql> select HEX(AES256_ENCRYPT('strings', '0123456789abcdef01234567'));
 mysql> select AES256_DECRYPT(UNHEX('encrypted_hash_string'), '0123456789abcdef01234567');
 ```
 
  * AES 256 encrypt and decrypt
+   * key length : 32byte
 ```mysql
 mysql> select HEX(AES256_ENCRYPT('strings', '0123456789abcdef0123456789abcdef'));
 mysql> select AES256_DECRYPT(UNHEX('encrypted_hash_string'), '0123456789abcdef0123456789abcdef');
@@ -63,13 +67,13 @@ If you want to check installed files, you can test install as follow.
 [root@host lib_mysqludf_aes256]$ tree z # or find ./z
 ```
 
-* Regist aes256 UDF
+* Regist AES256_ENCRYPT/AES256_DECRYPT UDF
 
 ```bash
 [root@host lib_mysqludf_aes256]$ mysql < doc/aes256_install.sql
 ```
 
-* Unregist aes256 UDF
+* Unregist AES256_ENCRYPT/AES256_DECRYPT UDF
 
 ```bash
 [root@host lib_mysqludf_aes256]$ mysql < doc/aes256_uninstall.sql
@@ -78,6 +82,12 @@ If you want to check installed files, you can test install as follow.
 After installation, aes256_install.sql and aes256_uninstall.sql are located
 in PREFIX/share/doc/lib_mysqludf_aes256-@VERSION@/.
 
+## Language API
+
+This UDF function will operate in the same way with follow apis:
+
+  * [javascript mysqlAES package](http://mirror.oops.org/pub/oops/javascript/mysqlAES/)
+  * [PHP mysqlAES class](http://mirror.oops.org/pub/oops/php/pear/mysqlAES/)
 
 ## Credits
 
