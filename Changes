@@ -3,6 +3,7 @@ Changelog
 $Id: $
 
 Sun, May 22 2016 JoungKyun.Kim <http://oops.org>
+	- release 1.0.4
 	- fixed #4 can not found my_global.h on configure
 
 Fri, May 20 2016 JoungKyun.Kim <http://oops.org>
