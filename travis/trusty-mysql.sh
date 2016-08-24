@@ -13,7 +13,7 @@ case "$VER" in
 		apt-get -y install software-properties-common
 		add-apt-repository -y ppa:ondrej/mysql-${VER}
 
-		INSTPKG="mysql-server mysql-client libmysqlclient-dev"
+		INSTPKG="mysql-server mysql-client libmysqlclient-dev libmysqld-dev"
 		;;
 	*)
 		echo "Unsupport version \"$VER\"" > /dev/stdout
