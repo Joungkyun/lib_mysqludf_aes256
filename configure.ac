@@ -55,9 +55,20 @@ else
 	AC_MSG_ERROR(can not find)
 fi
 
+MYSQL_LIBVER=$($MYSQL_CONFIG --version 2> /dev/null)
+
+AC_MSG_CHECKING(checking for MySQL library version) 
+if test -n "$MYSQL_CONFIG"; then
+	AC_MSG_RESULT($MYSQL_LIBVER)
+	libdir="$MYSQL_PLUGIN_DIR"
+else
+	AC_MSG_ERROR(can not find)
+fi
+
+
 MYSQL_PLUGIN_DIR=$($MYSQL_CONFIG --plugindir 2> /dev/null)
 
-AC_MSG_CHECKING(checking for mysql plugin dir) 
+AC_MSG_CHECKING(checking for MySQL plugin dir) 
 if test -n "$MYSQL_CONFIG"; then
 	AC_MSG_RESULT($MYSQL_PLUGIN_DIR)
 	libdir="$MYSQL_PLUGIN_DIR"
@@ -65,17 +76,20 @@ else
 	AC_MSG_ERROR(can not find)
 fi
 
-
-for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
-do
-	if test -f "$i/include/mysql/mysql.h"; then
-		MYSQL_HEADER="-I$i/include/mysql -I$i/include"
-		break
-	elif test -f "$i/include/mysql.h"; then
-		MYSQL_HEADER="-I$i/include"
-		break
-	fi
-done
+if test -n "$MYSQL_CONFIG"; then
+	MYSQL_HEADER=$($MYSQL_CONFIG --include)
+else
+	for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
+	do
+		if test -f "$i/include/mysql/mysql.h"; then
+			MYSQL_HEADER="-I$i/include/mysql -I$i/include"
+			break
+		elif test -f "$i/include/mysql.h"; then
+			MYSQL_HEADER="-I$i/include"
+			break
+		fi
+	done
+fi
 
 # Checks for header files.
 OLD_CPPFLAGS="$CPPFLAGS"

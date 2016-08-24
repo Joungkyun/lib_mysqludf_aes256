@@ -11526,10 +11526,23 @@ else
 	as_fn_error $? "can not find" "$LINENO" 5
 fi
 
+MYSQL_LIBVER=$($MYSQL_CONFIG --version 2> /dev/null)
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking checking for MySQL library version" >&5
+$as_echo_n "checking checking for MySQL library version... " >&6; }
+if test -n "$MYSQL_CONFIG"; then
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $MYSQL_LIBVER" >&5
+$as_echo "$MYSQL_LIBVER" >&6; }
+	libdir="$MYSQL_PLUGIN_DIR"
+else
+	as_fn_error $? "can not find" "$LINENO" 5
+fi
+
+
 MYSQL_PLUGIN_DIR=$($MYSQL_CONFIG --plugindir 2> /dev/null)
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking checking for mysql plugin dir" >&5
-$as_echo_n "checking checking for mysql plugin dir... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking checking for MySQL plugin dir" >&5
+$as_echo_n "checking checking for MySQL plugin dir... " >&6; }
 if test -n "$MYSQL_CONFIG"; then
 	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $MYSQL_PLUGIN_DIR" >&5
 $as_echo "$MYSQL_PLUGIN_DIR" >&6; }
@@ -11538,17 +11551,20 @@ else
 	as_fn_error $? "can not find" "$LINENO" 5
 fi
 
-
-for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
-do
-	if test -f "$i/include/mysql/mysql.h"; then
-		MYSQL_HEADER="-I$i/include/mysql -I$i/include"
-		break
-	elif test -f "$i/include/mysql.h"; then
-		MYSQL_HEADER="-I$i/include"
-		break
-	fi
-done
+if test -n "$MYSQL_CONFIG"; then
+	MYSQL_HEADER=$($MYSQL_CONFIG --include)
+else
+	for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
+	do
+		if test -f "$i/include/mysql/mysql.h"; then
+			MYSQL_HEADER="-I$i/include/mysql -I$i/include"
+			break
+		elif test -f "$i/include/mysql.h"; then
+			MYSQL_HEADER="-I$i/include"
+			break
+		fi
+	done
+fi
 
 # Checks for header files.
 OLD_CPPFLAGS="$CPPFLAGS"
