@@ -42,7 +42,7 @@ before_install:
     - sudo /bin/bash travis/trusty-${SERV}.sh ${VERSION}
 
 script:
-    ./configure --with-mysql-plugins-dir=/usr/lib/mysql/plugin && make && sudo make install && sudo /bin/bash travis/test.sh
+    ./configure && make && sudo make install && sudo /bin/bash travis/test.sh
 
 notifications:
       email: false
