@@ -293,6 +293,11 @@ EXPORT_API char * aes256_decrypt (
 			"    + length : %ld\n",
 			args->arg_type[0], args->args[0], args->lengths[0]
 		);
+		// 암호화되지 않은 임의의 값(select AES256_DECRYPT(UNHEX('encrypted_hash_string'), '0123456789abcdef0123456789abcdef');)을 
+		// 넣으면(예제소스를 그대로 실행시) 
+		// MySQL 5.5.30 version에서 DB 정지되는 현상 발생 
+		// 파라미터 검증 후 잘못된 값으로 판단되면 null 리턴되도록 수정 (2016-11-16)
+		return null;
 	}
 
 #ifdef MY_AES256_DEBUG
