@@ -89,7 +89,7 @@ in PREFIX/share/doc/lib_mysqludf_aes256-@VERSION@/.
 This UDF function will operate in the same way with follow apis:
 
   * [javascript mysqlAES package](http://mirror.oops.org/pub/oops/javascript/mysqlAES/)
-  * [PHP mysqlAES class](http://mirror.oops.org/pub/oops/php/pear/mysqlAES/)
+  * [PHP mysqlAES class](https://github.com/OOPS-ORG-PHP/mysqlAES)
 
 ## Credits
 
