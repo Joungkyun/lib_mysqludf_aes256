@@ -1,6 +1,9 @@
 Changelog
 
-$Id: $
+Thu, Nov 17 2016 JoungKyun.Kim <http://oops.org>
+	- release 1.0.5
+	- fixed #7 setfault aes256_decrypt with unencrypted string
+	  (https://github.com/antksk)
 
 Thu, Aug 25 2016 JoungKyun.Kim <http://oops.org>
 	- enhanced configure for searching installed mysql informations
