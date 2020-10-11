@@ -46,7 +46,7 @@ mysql> select AES256_DECRYPT(UNHEX('encrypted_hash_string'), '0123456789abcdef01
 ```bash
 [root@host lib_mysqludf_aes256]$ ./configure \
         --with-mysql=@MYSQL_PREFIX@ \
-        --with-mysql-config=/usr/bin/mysql_config
+        --with-mysql-config=@MYSQL_PREFIX@/bin/mysql_config
 [root@host lib_mysqludf_aes256]$ make
 [root@host lib_mysqludf_aes256]$ make install
 ```
