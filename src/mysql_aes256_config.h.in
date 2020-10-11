@@ -28,9 +28,6 @@
 /* Define to 1 if you have the <my_global.h> header file. */
 #undef HAVE_MY_GLOBAL_H
 
-/* Define to 1 if you have the <my_sys.h> header file. */
-#undef HAVE_MY_SYS_H
-
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
 

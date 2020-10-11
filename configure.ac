@@ -1,7 +1,6 @@
 # Process this file with autoconf to produce a configure script.
 # Configure template for mysql aes256 encrypt/decrypt UDF
 #
-# $Id$
 
 AC_PREREQ(2.59)
 AC_INIT([lib_mysqludf_aes256], [1.0.6], [http://oops.org])
@@ -91,13 +90,28 @@ else
 	done
 fi
 
+# Over 10.3
+for i in $MYSQL_PREFIX /usr /uar/local /usr/local/mysql /opt/mysql
+do
+	if test -f "$i/include/mysql/private/mysqld.h"; then
+		MYSQL_HEADER+=" -I$i/include/mysql/private"
+	elif test -f "$i/include/mysql/server/mysql_version.h"; then
+		MYSQL_HEADER="-I$i/include/mysql/server -I$i/include/mysql/server/private $MYSQL_HEADER"
+	fi
+done
+
 # Checks for header files.
 OLD_CPPFLAGS="$CPPFLAGS"
 CPPFLAGS="$MYSQL_HEADER $CPPFLAGS"
 AC_HEADER_STDC
 AC_CHECK_HEADERS(
-	[stdlib.h string.h mysql.h my_global.h my_sys.h],,
+	[stdlib.h string.h mysql.h my_global.h],,
 	[AC_MSG_ERROR([You must need $ac_header file to build this udf.])]
+)
+AC_CHECK_HEADER(
+	[my_sys.h],,
+	[AC_MSG_ERROR([You must need $ac_header file to build this udf.])],
+	[ #include <my_global.h> ]
 )
 CPPFLAGS="$OLD_CPPFLAGS"
 
