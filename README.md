@@ -72,13 +72,13 @@ If you want to check installed files, you can test install as follow.
 * Regist AES256_ENCRYPT/AES256_DECRYPT UDF
 
 ```bash
-[root@host lib_mysqludf_aes256]$ mysql < doc/aes256_install.sql
+[root@host lib_mysqludf_aes256]$ mysql < docs/aes256_install.sql
 ```
 
 * Unregist AES256_ENCRYPT/AES256_DECRYPT UDF
 
 ```bash
-[root@host lib_mysqludf_aes256]$ mysql < doc/aes256_uninstall.sql
+[root@host lib_mysqludf_aes256]$ mysql < docs/aes256_uninstall.sql
 ```
 
 After installation, aes256_install.sql and aes256_uninstall.sql are located
