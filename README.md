@@ -12,7 +12,7 @@ This program is under [GPL v2](License)
 ## Requirements
 
 MySQL &lt;= 5.7  
-Mariadb &lt;= 10.2
+Mariadb &lt;= 10.5
 
 From the version MySQL 5.6.17 and later, you can encode to AES-256 with AES_ENCRYPT function using the ***block_encryption_mode*** global variable. see also http://mysqlblog.fivefarmers.com/2014/03/27/mysql-5-6-17-now-with-better-encryption/. And from version 5.7.4 and later, you can encode to AES-256 with AES_ENCRYPT using 32byte key lentgh. MariaDB does not yet support thie features.
 
