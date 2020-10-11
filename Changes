@@ -1,5 +1,11 @@
 Changelog
 
+Sun, Oct 11 2020 JoungKyun.Kim <http://oops.org>
+	- release 1.0.6
+	- support mariadb 10.5
+    - #9 build failure uner mariadb 10.3 and after
+    - #10 No such file or directory about m_string.h
+
 Thu, Nov 17 2016 JoungKyun.Kim <http://oops.org>
 	- release 1.0.5
 	- fixed #7 setfault aes256_decrypt with unencrypted string
