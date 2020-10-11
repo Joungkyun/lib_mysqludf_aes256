@@ -6,7 +6,7 @@ Support AES 128/192/256 encrypt and decrypt on MySQL and Maraidb with User Defin
 
 ## License
 
-Copyright (c) 2016 JoungKyun.Kim &lt;http://oops.org&gt; All rights reserved.
+Copyright (c) 2020 JoungKyun.Kim &lt;http://oops.org&gt; All rights reserved.
 This program is under [GPL v2](License)
 
 ## Requirements

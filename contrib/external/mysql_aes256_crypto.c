@@ -1,6 +1,6 @@
 /*
  *                       Written by JoungKyun.Kim
- *            Copyright (c) 2013 JoungKyun.Kim <http://oops.org>
+ *            Copyright (c) 2020 JoungKyun.Kim <http://oops.org>
  *
  * -----------------------------------------------------------------------------
  * Redistribution and use in source and binary forms, with or without
@@ -31,8 +31,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------------------------------------
  * This file is part of lib_mysqludf_aes267
- *
- * $Id$
  */
 
 #include <stdio.h>

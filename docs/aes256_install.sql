@@ -1,6 +1,6 @@
 /*
  *                       Written by JoungKyun.Kim
- *            Copyright (c) 2013 JoungKyun.Kim <http://oops.org>
+ *            Copyright (c) 2020 JoungKyun.Kim <http://oops.org>
  *
  * -----------------------------------------------------------------------------
  *  This program is free software; you can redistribute it and/or modify it
@@ -17,8 +17,6 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -----------------------------------------------------------------------------
  * This file is part of lib_mysqludf_aes267
- *
- * $Id$
  */
 
 use mysql;

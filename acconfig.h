@@ -1,4 +1,3 @@
-/* $Id: $ */
 #ifndef LIB_MYSQLUDF_AES256_CONFIG_H
 #define LIB_MYSQLUDF_AES256_CONFIG_H
 
